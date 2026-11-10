@@ -126,10 +126,7 @@ def prepare_data(force: bool = False):
     out.to_csv(METADATA_CSV, index=False)
 
     first = Counter(r[2].split(";")[0] for r in rows)
-    print(f"Wrote {len(rows)} rows to {METADATA_CSV} (dropped {keep.count(False)} without a usable diagnosis)")
-    print("Class counts (first label):", dict(first))
-    print(f"Eye labels not explained by the patient-level labels: {mismatches}")
-    print("Most common keywords mapped to O:", fallback.most_common(15))
+    print(f"Wrote {len(rows)} rows to {METADATA_CSV}")
     return IMAGES_DIR, METADATA_CSV
 
 
